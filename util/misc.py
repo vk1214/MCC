@@ -16,10 +16,12 @@ import os
 import time
 from collections import defaultdict, deque
 from pathlib import Path
+import pathlib
+pathlib.PosixPath = pathlib.WindowsPath
 
 import torch
 import torch.distributed as dist
-from torch._six import inf
+from torch import inf
 
 
 class SmoothedValue(object):

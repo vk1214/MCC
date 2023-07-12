@@ -94,7 +94,7 @@ def main(args):
         occupancy_weight=1.0,
         rgb_weight=0.01,
         args=args,
-    ).cuda()
+    )
 
     misc.load_model(args=args, model_without_ddp=model, optimizer=None, loss_scaler=None)
 
@@ -149,7 +149,7 @@ def main(args):
         [seen_xyz, seen_rgb],
         [torch.zeros((20000, 3)), torch.zeros((20000, 3))],
     ]
-    run_viz(model, samples, "cuda", args, prefix=args.output)
+    run_viz(model, samples, "cpu", args, prefix=args.output)
 
 
 if __name__ == '__main__':
